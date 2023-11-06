@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Author: Grant Gallagher
+Class: Web & Distributed Programming
+Project: Map Mania Version 2
+-->
+<head>
+    <title>MapMania2</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1>Guess the National Park Game</h1>
+    <p>Drag along the map and click on locations to guess them. <br>
+        The national Park may be anywhere around the world.</p>
+    <div id="map"></div>
+    <div id="info">
+        <div id="hint"></div>
+        <div id="guesses">Guesses: <span>0</span></div>
+        <div id="score">Score: <span>0</span></div>
+        <div id="locationName"></div>
+        <img id="locationImage" src="" alt="Location Image">
+    </div>
+
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2>Getting Started</h2>
+            <p>Welcome to the Guess the National Park Game!</p>
+            <p>Your goal is to click on the map to guess the location of a national park.</p>
+            <p>When you think you've found the park, click within the specified distance to win.</p>
+            <p>The game keeps track of your score, and you win when you've found all the parks.</p>
+            <p>Click anywhere on the map to start playing!</p>
+            <p>If you want to skip the game and win instantly, you can use the "Win Now" cheat code. Just click the "Win Now" button located in the game interface. A confirmation dialog will appear to make sure you want to skip the rest of the game and win now. Use this feature wisely!</p>
+        </div>
+    </div>
+
+    <button id="winNowButton">Win Now</button>
+
+    <script>
+        // Automatically open the modal when the page loads
+        document.addEventListener("DOMContentLoaded", function () {
+            const instructionsModal = document.getElementById("instructionsModal");
+            instructionsModal.style.display = "block";
+
+            // Automatically close the modal after 5 seconds
+            setTimeout(function () {
+                instructionsModal.style.display = "none";
+            }, 5000);
+        });
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWCneeLLl2YnkrDVZInGnKDchllJNJztU&callback=initMap&libraries=geometry,places" async defer></script>
+</body>
+</html>
